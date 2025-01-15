@@ -1,0 +1,56 @@
+<view class="container">
+  <view class="header">
+    <picker mode="date" 
+            value="{{selectedDate}}" 
+            end="{{today}}" 
+            bindchange="bindDateChange">
+      <view class="date-picker">
+        <block wx:if="{{selectedDate === today}}">
+          今日账单
+        </block>
+        <block wx:else>
+          {{selectedDate}} 账单
+        </block>
+        <view class="picker-arrow">▼</view>
+      </view>
+    </picker>
+
+    <view class="daily-summary">
+      <text wx:for="{{dailyTotals}}" 
+            wx:key="currency" 
+            class="currency-total">
+        {{item.currency}}: {{item.amount}}
+      </text>
+    </view>
+  </view>
+<!-- 新增统计数字显示区域 -->
+
+  <scroll-view scroll-y class="bill-list">
+    <block wx:for="{{bills}}" wx:key="_id">
+      <view class="bill-item" 
+            bindtap="handleImageTap" 
+            bindlongpress="handleLongPress" 
+            data-id="{{item._id}}"
+            data-imageurl="{{item.imageUrl}}">
+        <view class="bill-header">
+          <view class="bill-time">
+            <text class="time">{{item.timeStr}}</text>
+          </view>
+          <view class="bill-amount">
+            <text class="currency">{{item.currency}}</text>
+            <text class="amount">{{item.amount}}</text>
+          </view>
+        </view>
+        <view class="bill-notes">{{item.notes || '无备注'}}</view>
+        <view class="image-indicator" wx:if="{{item.imageUrl}}">
+          <image class="image-icon" src="/images/image-icon.png"></image>
+          <text>查看图片</text>
+        </view>
+      </view>
+    </block>
+
+    <view wx:if="{{!bills.length}}" class="empty-tip">
+      暂无记录
+    </view>
+  </scroll-view>
+</view>

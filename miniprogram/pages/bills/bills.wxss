@@ -1,0 +1,133 @@
+/* 你原有的代码 */
+.container {
+  min-height: 100vh;
+  background: #f8f8f8;
+}
+
+.header {
+  padding: 30rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+  /* background: #ffffff; */
+}
+
+.date-picker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50rpx;
+  font-weight: bold;
+  color: #333333;
+}
+
+.picker-arrow {
+  margin-left: 10rpx;
+  font-size: 24rpx;
+  color: #999999;
+}
+
+/* 新增汇总样式 */
+
+.daily-summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 设置3列等宽布局 */
+  gap: 5rpx;
+  padding: 0rpx 0rpx;
+  /* background-color: #f8f8f8; */
+  /* margin-top: -20 rpx; */
+  border-radius: 8rpx;
+  
+}
+
+.currency-total {
+    
+  font-size: 20rpx;
+  color: #AAAAAA;
+  font-weight: bolder;
+  padding: 0rpx 0rpx;
+  /* background-color: #fff; */
+  border-radius: 4rpx;
+  /* box-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.1); */
+  text-align: center;
+  white-space: nowrap; /* 防止文本换行 */
+}
+
+
+
+
+/* 你原有的代码 */
+.bill-list {
+  height: calc(100vh - 97rpx);
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+.bill-item {
+  margin-bottom: 20rpx;
+  background: #ffffff;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+.bill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 16rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.bill-time {
+  display: flex;
+  flex-direction: column;
+}
+
+.time {
+  font-size: 40rpx;
+  color: #999999;
+}
+
+.bill-amount {
+  text-align: right;
+}
+
+.currency {
+  font-size: 24rpx;
+  color: #666666;
+  margin-right: 8rpx;
+}
+
+.amount {
+  font-size: 50rpx;
+  color: #404040;
+  font-weight: bold;
+}
+
+.bill-notes {
+  padding-top: 16rpx;
+  font-size: 28rpx;
+  color: #666666;
+}
+
+.empty-tip {
+  text-align: center;
+  padding: 100rpx 0;
+  color: #999999;
+  font-size: 28rpx;
+}
+
+.image-indicator {
+  margin-top: 16rpx;
+  padding-top: 16rpx;
+  border-top: 1rpx solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  color: #999999;
+  font-size: 24rpx;
+}
+
+.image-icon {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 8rpx;
+}

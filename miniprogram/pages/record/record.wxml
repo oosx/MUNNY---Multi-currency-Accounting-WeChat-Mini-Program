@@ -1,0 +1,103 @@
+<view class="container">
+
+    <view class="datetime-container">
+    <picker mode="date" 
+            value="{{date}}" 
+            end="{{today}}" 
+            bindchange="bindDateChange">
+      <view class="datetime-picker">
+        <text class="datetime-label"></text>
+        <text class="datetime-value">{{date}}</text>
+      </view>
+    </picker>
+
+    <picker mode="time" 
+            value="{{time}}" 
+            bindchange="bindTimeChange"
+            disabled="{{date === today && time > currentTime}}">
+      <view class="datetime-picker {{date === today && time > currentTime ? 'datetime-picker-disabled' : ''}}">
+        <text class="datetime-label"></text>
+        <text class="datetime-value">{{time}}</text>
+      </view>
+    </picker>
+  </view>
+  <view class="currency-picker" bindtap="showCurrencyPicker">
+    <text>{{selectedCurrency.code}}</text>
+  </view>
+
+  <!-- 货币选择器弹窗 -->
+  <view class="currency-picker-modal {{showCurrencyPicker ? 'show' : ''}}" bindtap="hideCurrencyPicker">
+    <view class="currency-picker-content" catchtap="true">
+      <view class="currency-picker-gradient"></view>
+      <view class="currency-picker-scroll">
+        <!-- 置顶货币 -->
+        <view class="currency-section">
+          <view class="section-title">常用货币</view>
+          <view class="currency-list">
+            <view class="currency-item {{selectedCurrency.code === item.code ? 'selected' : ''}}"
+                  wx:for="{{topCurrencies}}"
+                  wx:key="code"
+                  data-type="top"
+                  data-index="{{index}}"
+                  bindtap="selectCurrency">
+              <text class="currency-code">{{item.code}}</text>
+              <text class="currency-name">{{item.display}}</text>
+            </view>
+          </view>
+        </view>
+        
+        <!-- 所有货币 -->
+        <view class="currency-section">
+          <view class="section-title">其他货币</view>
+          <view class="currency-list">
+            <view class="currency-item {{selectedCurrency.code === item.code ? 'selected' : ''}}"
+                  wx:for="{{allCurrencies}}"
+                  wx:key="code"
+                  data-type="all"
+                  data-index="{{index}}"
+                  bindtap="selectCurrency">
+              <text class="currency-code">{{item.code}}</text>
+              <text class="currency-name">{{item.display}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="input-container">
+    <input type="digit" 
+           class="amount-input"
+           value="{{amount}}"
+           placeholder="0"
+           placeholder-class="placeholder"
+           bindinput="handleAmountInput"
+           bindblur="handleAmountBlur"/>
+  </view>
+
+
+
+  <view class="image-container">
+    <view class="upload-btn" bindtap="handleChooseImage" wx:if="{{!imageUrl}}">
+      <text class="upload-icon">+</text>
+      <text class="upload-text">添加图片</text>
+    </view>
+    <view class="image-preview" wx:if="{{imageUrl}}">
+      <image src="{{imageUrl}}" mode="aspectFill"></image>
+      <view class="delete-btn" bindtap="handleDeleteImage">×</view>
+    </view>
+  </view>
+
+  <view class="input-container">
+    <input type="text"
+           class="notes-input"
+           value="{{notes}}"
+           placeholder="备注"
+           placeholder-class="placeholder"
+           bindinput="handleNotesInput"/>
+  </view>
+
+  <button class="submit-btn {{!amount ? 'submit-btn-disabled' : ''}}" 
+          bindtap="handleSubmit"
+          disabled="{{!amount}}">记账</button>
+</view>

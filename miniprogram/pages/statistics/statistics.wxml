@@ -1,0 +1,21 @@
+<view class="container">
+  <picker bindchange="bindPeriodChange" value="{{periodIndex}}" range="{{periods}}">
+    <view class="period-picker">
+      {{periods[periodIndex]}}
+    </view>
+  </picker>
+
+  <view class="summary-container">
+    <block wx:for="{{currencySummary}}" wx:key="currency">
+      <view class="currency-item">
+        <text class="currency-code">{{item.currency}}</text>
+        <text class="currency-amount">{{item.amount}}</text>
+      </view>
+    </block>
+    <view wx:if="{{!currencySummary.length}}" class="empty-tip">
+      暂无记录
+    </view>
+  </view>
+
+  <view class="version">v1.0.5</view>
+</view>
