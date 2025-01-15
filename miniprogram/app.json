@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/record/record",
+    "pages/statistics/statistics",
+    "pages/bills/bills"
+  ],
+  "window": {
+    "navigationBarTitleText": "Munny",
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#ffffff",
+    "backgroundColor": "#f8f8f8"
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents",
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#404040",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/record/record",
+        "text": "记账",
+        "iconPath": "images/record.png",
+        "selectedIconPath": "images/record_selected.png"
+      },
+      {
+        "pagePath": "pages/statistics/statistics",
+        "text": "统计",
+        "iconPath": "images/statistics.png",
+        "selectedIconPath": "images/statistics_selected.png"
+      },
+      {
+        "pagePath": "pages/bills/bills",
+        "text": "账单",
+        "iconPath": "images/bills.png",
+        "selectedIconPath": "images/bills_selected.png"
+      }
+    ]
+  }
+}
